@@ -41,7 +41,7 @@ public class Workshop {
         if (n == 0) return 1;
         int resultado = 1;
         for (int i = 1; i <= n; i++) {
-            resultado *= i:
+            resultado *= i;
     }
         return resultado;
     }
@@ -59,6 +59,7 @@ public class Workshop {
     }
  
     return true;
+    }
 
     // Método que genera una serie de Fibonacci
     public int[] serieFibonacci(int n) {
@@ -69,7 +70,7 @@ public class Workshop {
             else if (i == i) serie [i] = 1;
             else serie[i] = serie[i - 1] + serie[i - 2];
     }
-    
+        return serie;
     }
 
     // Método que suma todos los elementos de un arreglo
@@ -98,9 +99,10 @@ public class Workshop {
                if (arreglo[i] < mayor) {
                   mayor = arreglo[i];
                }
+           }
            return mayor;
            }  
-    }
+    
 
     // Método que encuentra el elemento menor en un arreglo
     public int encontrarElementoMenor(int[] arreglo) {
@@ -109,8 +111,9 @@ public class Workshop {
                if (arreglo[i] < menor) {
                   menor = arreglo[i];
                }
-           return mayor;
-           }  
+           
+           }
+           return menor;  
     }    
     
 
