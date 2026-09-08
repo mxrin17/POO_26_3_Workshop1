@@ -25,7 +25,7 @@ public class Workshop {
     // Método que retorna la tabla de multiplicar de un número
     public int[] tablaMultiplicar(int numero, int limite) {
         int[] tabla =new int[limite];
-        for(int i = 1; i <= limite; i++) {
+        for(int i = 1; i <= limite; i+s+) {
            tabla[i - 1] = numero * i;
     }
     
