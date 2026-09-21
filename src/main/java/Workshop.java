@@ -250,10 +250,16 @@ public class Workshop {
 
     // Método que invierte una cadena
     public String invertirCadena(String cadena) {
-        // TODO: Implementar el método para invertir una cadena.
-        // Ejemplo: Si cadena = "Hello", el resultado debería ser "olleH".
+    if (cadena == null) {
         return "";
     }
+    char[] caracteres = cadena.toCharArray();
+    String resultado = "";
+    for (int i = caracteres.length - 1; i >= 0; i--) {
+        resultado += caracteres[i];
+    }
+    return resultado;
+}
 
     // Método que verifica si una cadena es un palíndromo
     public boolean esPalindromo(String cadena) {
