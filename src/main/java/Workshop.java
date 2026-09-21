@@ -332,13 +332,16 @@ public class Workshop {
 }
 
     // Método que calcula el promedio de una lista de números
-
-    public double promedioLista(List<Integer> lista) {
-        // TODO: Implementar el método para calcular el promedio de una lista de números.
-        // Ejemplo: Si lista = [1, 2, 3, 4, 5], el resultado debería ser 3.0.
+public double promedioLista(List<Integer> lista) {
+    if (lista == null || lista.isEmpty()) {
         return 0.0;
     }
-
+    double suma = 0;
+    for (int num : lista) {
+        suma += num;
+    }
+    return suma / lista.size();
+}
     // Método que convierte un número en su representación binaria
     public String convertirABinario(int numero) {
         // TODO: Implementar el método para convertir un número en su representación binaria.
