@@ -13,11 +13,12 @@ public class Workshop {
 	//return 0;
     }
 
+    //Método que dice el mayor de tres números
     public int mayorDeTresNumeros(int a, int b, int c) {
     if (a >= b && a >= c) return a;
     if (b >= c) return b;  
     return c;
- } 
+}
 
     // Método que retorna la tabla de multiplicar de un número
    public int[] tablaMultiplicar(int numero, int limite) {
