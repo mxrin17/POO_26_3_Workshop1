@@ -430,8 +430,11 @@ public String convertirABinario(int numero) {
 }
 
     public double areaCirculo(double radio) {
+    if (radio < 0) {
         return 0.0;
     }
+    return Math.PI * Math.pow(radio, 2);
+}
 
     public String zoodiac(int day, int month) {
         return "";
