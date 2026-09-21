@@ -17,7 +17,7 @@ public class Workshop {
     if (a >= b && a >= c) return a;
     if (b >= c) return b;  
     return c;
-}
+ } 
 
     // Método que retorna la tabla de multiplicar de un número
     public int[] tablaMultiplicar(int numero, int limite) {
