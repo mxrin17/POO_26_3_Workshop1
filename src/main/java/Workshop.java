@@ -343,10 +343,9 @@ public double promedioLista(List<Integer> lista) {
     return suma / lista.size();
 }
     // Método que convierte un número en su representación binaria
-    public String convertirABinario(int numero) {
+public String convertirABinario(int numero) {
     return Integer.toBinaryString(numero);
 }
-
     // Método que convierte un número en su representación hexadecimal
     public String convertirAHexadecimal(int numero) {
     return Integer.toHexString(numero).toUpperCase();
