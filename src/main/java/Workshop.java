@@ -353,19 +353,46 @@ public String convertirABinario(int numero) {
 
     // Método para el juego de piedra, papel, tijera, lagarto, Spock
     public String jugarPiedraPapelTijeraLagartoSpock(String eleccionUsuario) {
-        // TODO: Implementar el método para el juego de Piedra, Papel, Tijera, Lagarto, Spock.
-        // Las reglas del juego son:
-        // - Piedra vence a Tijera y Lagarto
-        // - Papel vence a Piedra y Spock
-        // - Tijera vence a Papel y Lagarto
-        // - Lagarto vence a Spock y Papel
-        // - Spock vence a Tijera y Piedra
-
-
-        // El método debe retornar un mensaje indicando el resultado del juego.
-        // Ejemplo: Si la eleccionUsuario es "Piedra", el resultado podría ser "Ganaste" o "Perdiste" dependiendo de la elección de la computadora.
-        return "";
+    if (eleccionUsuario == null) {
+        return "Elección inválida";
     }
+
+    String[] opciones = {"Piedra", "Papel", "Tijera", "Lagarto", "Spock"};
+    String eleccionComputadora = opciones[(int) (Math.random() * opciones.length)];
+    String usuario = eleccionUsuario.trim();
+
+    if (usuario.equalsIgnoreCase(eleccionComputadora)) {
+        return "Empate (Ambos eligieron " + eleccionComputadora + ")";
+    }
+
+    boolean ganaUsuario = false;
+
+    switch (usuario.toLowerCase()) {
+        case "piedra":
+            ganaUsuario = eleccionComputadora.equals("Tijera") || eleccionComputadora.equals("Lagarto");
+            break;
+        case "papel":
+            ganaUsuario = eleccionComputadora.equals("Piedra") || eleccionComputadora.equals("Spock");
+            break;
+        case "tijera":
+            ganaUsuario = eleccionComputadora.equals("Papel") || eleccionComputadora.equals("Lagarto");
+            break;
+        case "lagarto":
+            ganaUsuario = eleccionComputadora.equals("Spock") || eleccionComputadora.equals("Papel");
+            break;
+        case "spock":
+            ganaUsuario = eleccionComputadora.equals("Tijera") || eleccionComputadora.equals("Piedra");
+            break;
+        default:
+            return "Opción no válida";
+    }
+
+    if (ganaUsuario) {
+        return "Ganaste (Computadora eligió " + eleccionComputadora + ")";
+    } else {
+        return "Perdiste (Computadora eligió " + eleccionComputadora + ")";
+    }
+}
 
     public String pptls2(String game[]) {
         //Retornar player ganador o empate
