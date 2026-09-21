@@ -343,10 +343,23 @@ public double promedioLista(List<Integer> lista) {
     return suma / lista.size();
 }
     // Método que convierte un número en su representación binaria
+// Método que convierte un número en su representación binaria
 public String convertirABinario(int numero) {
-    return Integer.toBinaryString(numero);
-}
-    // Método que convierte un número en su representación hexadecimal
+    if (numero == 0) {
+        return "0";
+    }
+
+    boolean esNegativo = numero < 0;
+    int numAbs = Math.abs(numero);
+    StringBuilder binario = new StringBuilder();
+
+    while (numAbs > 0) {
+        binario.insert(0, numAbs % 2);
+        numAbs /= 2;
+    }
+
+    return esNegativo ? "-" + binario.toString() : binario.toString();
+}    // Método que convierte un número en su representación hexadecimal
     public String convertirAHexadecimal(int numero) {
     return Integer.toHexString(numero).toUpperCase();
 }
