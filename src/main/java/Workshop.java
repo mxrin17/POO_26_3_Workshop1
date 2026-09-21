@@ -472,26 +472,32 @@ public String jugarPiedraPapelTijeraLagartoSpock(String eleccionUsuario) {
     return Math.PI * Math.pow(radio, 2);
 }
 
-        public String zoodiac(int day, int month) {
-        if (month < 1 || month > 12 || day < 1 || day > 31) {
-            return "Fecha inválida";
-        }
-
-        switch (month) {
-            case 1:  return (day <= 19) ? "Capricornio" : "Acuario";
-            case 2:  return (day <= 18) ? "Acuario" : "Piscis";
-            case 3:  return (day <= 20) ? "Piscis" : "Aries";
-            case 4:  return (day <= 19) ? "Aries" : "Tauro";
-            case 5:  return (day <= 20) ? "Tauro" : "Géminis";
-            case 6:  return (day <= 20) ? "Géminis" : "Cáncer";
-            case 7:  return (day <= 22) ? "Cáncer" : "Leo";
-            case 8:  return (day <= 22) ? "Leo" : "Virgo";
-            case 9:  return (day <= 22) ? "Virgo" : "Libra";
-            case 10: return (day <= 22) ? "Libra" : "Escorpio";
-            case 11: return (day <= 21) ? "Escorpio" : "Sagitario";
-            case 12: return (day <= 21) ? "Sagitario" : "Capricornio";
-            default: return "Fecha inválida";
-        }
+       // Método que determina el signo zodiacal
+public String zoodiac(int day, int month) {
+    if (month < 1 || month > 12 || day < 1 || day > 31) {
+        return "Fecha inválida";
     }
 
+    // Validación estricta de días según el mes
+    int[] diasPorMes = {0, 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    if (day > diasPorMes[month]) {
+        return "Fecha inválida";
+    }
+
+    switch (month) {
+        case 1:  return (day <= 19) ? "Capricornio" : "Acuario";
+        case 2:  return (day <= 18) ? "Acuario" : "Piscis";
+        case 3:  return (day <= 20) ? "Piscis" : "Aries";
+        case 4:  return (day <= 19) ? "Aries" : "Tauro";
+        case 5:  return (day <= 20) ? "Tauro" : "Geminis"; // Sin tilde por compatibilidad
+        case 6:  return (day <= 20) ? "Geminis" : "Cancer";
+        case 7:  return (day <= 22) ? "Cancer" : "Leo";
+        case 8:  return (day <= 22) ? "Leo" : "Virgo";
+        case 9:  return (day <= 22) ? "Virgo" : "Libra";
+        case 10: return (day <= 22) ? "Libra" : "Escorpio";
+        case 11: return (day <= 21) ? "Escorpio" : "Sagitario";
+        case 12: return (day <= 21) ? "Sagitario" : "Capricornio";
+        default: return "Fecha inválida";
+    }
+}
 }
