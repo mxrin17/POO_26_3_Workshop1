@@ -168,10 +168,35 @@ public class Workshop {
 
     // Método que elimina los duplicados de un arreglo
     public int[] eliminarDuplicados(int[] arreglo) {
-        // TODO: Implementar el método para eliminar los duplicados de un arreglo.
-        // Ejemplo: Si arreglo = [1, 2, 2, 3, 4, 4, 5], el resultado debería ser [1, 2, 3, 4, 5].
+    if (arreglo == null) {
         return new int[0];
     }
+
+    int n = arreglo.length;
+    int[] temporal = new int[n];
+    int tamanoUnicos = 0;
+
+    for (int i = 0; i < n; i++) {
+        boolean esDuplicado = false;
+        for (int j = 0; j < tamanoUnicos; j++) {
+            if (arreglo[i] == temporal[j]) {
+                esDuplicado = true;
+                break;
+            }
+        }
+        if (!esDuplicado) {
+            temporal[tamanoUnicos] = arreglo[i];
+            tamanoUnicos++;
+        }
+    }
+
+    int[] resultado = new int[tamanoUnicos];
+    for (int i = 0; i < tamanoUnicos; i++) {
+        resultado[i] = temporal[i];
+    }
+
+    return resultado;
+}
 
     // Método que combina dos arreglos en uno solo
     public int[] combinarArreglos(int[] arreglo1, int[] arreglo2) {
