@@ -429,7 +429,7 @@ public String convertirABinario(int numero) {
     return p1Gana ? "Player 1" : "Player 2";
 }
 
-    public double areaCirculo(double radio) {
+   public double areaCirculo(double radio) {
     if (radio < 0) {
         return 0.0;
     }
