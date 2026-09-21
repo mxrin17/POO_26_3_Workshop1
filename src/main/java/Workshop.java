@@ -395,26 +395,39 @@ public String convertirABinario(int numero) {
 }
 
     public String pptls2(String game[]) {
-        //Retornar player ganador o empate
-            /*
-            Rock = R
-            Paper = P
-            Scissors = S
-            Lizard = L
-            Spock = V
-        Scissors cuts Paper
-Paper covers Rock
-Rock crushes Lizard
-Lizard poisons Spock
-Spock smashes Scissors
-Scissors decapitates Lizard
-Lizard eats Paper
-Paper disproves Spock
-Spock vaporizes Rock
-Rock crushes Scissors
-         */
-        return "";
+    if (game == null || game.length < 2) {
+        return "Empate";
     }
+
+    String p1 = game[0].toUpperCase();
+    String p2 = game[1].toUpperCase();
+
+    if (p1.equals(p2)) {
+        return "Empate";
+    }
+
+    boolean p1Gana = false;
+
+    switch (p1) {
+        case "R": // Rock
+            p1Gana = p2.equals("S") || p2.equals("L");
+            break;
+        case "P": // Paper
+            p1Gana = p2.equals("R") || p2.equals("V");
+            break;
+        case "S": // Scissors
+            p1Gana = p2.equals("P") || p2.equals("L");
+            break;
+        case "L": // Lizard
+            p1Gana = p2.equals("V") || p2.equals("P");
+            break;
+        case "V": // Spock
+            p1Gana = p2.equals("S") || p2.equals("R");
+            break;
+    }
+
+    return p1Gana ? "Player 1" : "Player 2";
+}
 
     public double areaCirculo(double radio) {
         return 0.0;
