@@ -377,46 +377,57 @@ public String convertirAHexadecimal(int numero) {
 }
 
     // Método para el juego de piedra, papel, tijera, lagarto, Spock
-    public String jugarPiedraPapelTijeraLagartoSpock(String eleccionUsuario) {
+public String jugarPiedraPapelTijeraLagartoSpock(String eleccionUsuario) {
     if (eleccionUsuario == null) {
         return "Elección inválida";
     }
 
-    String[] opciones = {"Piedra", "Papel", "Tijera", "Lagarto", "Spock"};
-    String eleccionComputadora = opciones[(int) (Math.random() * opciones.length)];
-    String usuario = eleccionUsuario.trim();
+    String usuario = eleccionUsuario.trim().toLowerCase();
+    
+    // Lista de opciones válidas
+    String[] opciones = {"piedra", "papel", "tijera", "lagarto", "spock"};
+    
+    // Verificar si la entrada es válida
+    boolean esValido = false;
+    for (String opcion : opciones) {
+        if (opcion.equals(usuario)) {
+            esValido = true;
+            break;
+        }
+    }
+    
+    if (!esValido) {
+        return "Opción no válida";
+    }
 
-    if (usuario.equalsIgnoreCase(eleccionComputadora)) {
-        return "Empate (Ambos eligieron " + eleccionComputadora + ")";
+    // Elección simulada de la computadora
+    String eleccionComputadora = opciones[(int) (Math.random() * opciones.length)];
+
+    if (usuario.equals(eleccionComputadora)) {
+        return "Empate";
     }
 
     boolean ganaUsuario = false;
 
-    switch (usuario.toLowerCase()) {
+    switch (usuario) {
         case "piedra":
-            ganaUsuario = eleccionComputadora.equals("Tijera") || eleccionComputadora.equals("Lagarto");
+            ganaUsuario = eleccionComputadora.equals("tijera") || eleccionComputadora.equals("lagarto");
             break;
         case "papel":
-            ganaUsuario = eleccionComputadora.equals("Piedra") || eleccionComputadora.equals("Spock");
+            ganaUsuario = eleccionComputadora.equals("piedra") || eleccionComputadora.equals("spock");
             break;
         case "tijera":
-            ganaUsuario = eleccionComputadora.equals("Papel") || eleccionComputadora.equals("Lagarto");
+            ganaUsuario = eleccionComputadora.equals("papel") || eleccionComputadora.equals("lagarto");
             break;
         case "lagarto":
-            ganaUsuario = eleccionComputadora.equals("Spock") || eleccionComputadora.equals("Papel");
+            ganaUsuario = eleccionComputadora.equals("spock") || eleccionComputadora.equals("papel");
             break;
         case "spock":
-            ganaUsuario = eleccionComputadora.equals("Tijera") || eleccionComputadora.equals("Piedra");
+            ganaUsuario = eleccionComputadora.equals("tijera") || eleccionComputadora.equals("piedra");
             break;
-        default:
-            return "Opción no válida";
     }
 
-    if (ganaUsuario) {
-        return "Ganaste (Computadora eligió " + eleccionComputadora + ")";
-    } else {
-        return "Perdiste (Computadora eligió " + eleccionComputadora + ")";
-    }
+    return ganaUsuario ? "Ganaste" : "Perdiste";
 }
 
     public String pptls2(String game[]) {
